@@ -1,0 +1,6 @@
+<div class="flex items-center justify-center" [ngClass]="containerClass">
+  <div class="animate-spin rounded-full border-4 border-gray-200 border-t-primary-600" 
+       [ngClass]="sizeClass">
+  </div>
+  <span *ngIf="message" class="ml-3 text-gray-600">{{ message }}</span>
+</div>

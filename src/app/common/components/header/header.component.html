@@ -1,0 +1,93 @@
+<header class="bg-white shadow-sm border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo and Navigation -->
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <h1 class="text-xl font-bold text-primary-600">
+            Student Management System
+          </h1>
+        </div>
+        
+        <nav class="hidden md:ml-8 md:flex md:space-x-8">
+          <a routerLink="/dashboard" 
+             routerLinkActive="text-primary-600 border-primary-600"
+             class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+            Dashboard
+          </a>
+          <a routerLink="/students" 
+             routerLinkActive="text-primary-600 border-primary-600"
+             class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+            Students
+          </a>
+          <a routerLink="/courses" 
+             routerLinkActive="text-primary-600 border-primary-600"
+             class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+            Courses
+          </a>
+        </nav>
+      </div>
+
+      <!-- User Menu -->
+      <div class="flex items-center space-x-4">
+        <div class="relative" *ngIf="currentUser">
+          <button (click)="toggleUserMenu()" 
+                  class="flex items-center space-x-2 text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+            <img class="h-8 w-8 rounded-full" 
+                 [src]="currentUser.avatar || '/assets/images/default-avatar.png'" 
+                 [alt]="currentUser.firstName + ' ' + currentUser.lastName">
+            <span class="hidden md:block text-gray-700">{{ currentUser.firstName }} {{ currentUser.lastName }}</span>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div *ngIf="showUserMenu" 
+               class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+            <div class="py-1">
+              <a routerLink="/profile" 
+                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                Profile
+              </a>
+              <a href="#" 
+                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                Settings
+              </a>
+              <button (click)="logout()" 
+                      class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                Sign out
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button (click)="toggleMobileMenu()" 
+                class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div *ngIf="showMobileMenu" class="md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a routerLink="/dashboard" 
+           routerLinkActive="bg-primary-50 border-primary-500 text-primary-700"
+           class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+          Dashboard
+        </a>
+        <a routerLink="/students" 
+           routerLinkActive="bg-primary-50 border-primary-500 text-primary-700"
+           class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+          Students
+        </a>
+        <a routerLink="/courses" 
+           routerLinkActive="bg-primary-50 border-primary-500 text-primary-700"
+           class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
+          Courses
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

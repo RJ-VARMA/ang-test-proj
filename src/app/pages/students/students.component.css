@@ -1,0 +1,12 @@
+/* Students page specific styles */
+.table-row-hover {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.table-row-hover:hover {
+  background-color: #f9fafb;
+}
+
+.status-badge {
+  transition: all 0.2s ease-in-out;
+}

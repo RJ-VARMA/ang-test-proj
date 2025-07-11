@@ -1,0 +1,13 @@
+/* Profile page specific styles */
+.profile-avatar {
+  transition: transform 0.2s ease-in-out;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
+.form-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
